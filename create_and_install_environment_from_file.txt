@@ -1,0 +1,17 @@
+1) Create the environment where you will install all the packages you need:
+conda create -n myEnv
+conda install pandas 
+conda install ...
+etc..
+
+2) Save the newly created environment in a ".yml" file:
+
+conda export > myenvironment.yml
+
+Note: the "myenvironment.yml" file will contain (in the first line) the name of the enviroment (myEnv) you are using.
+When, later on, you will use this file for the installation of a new environment, this name will be assigned to the new environment. 
+So, if you want to change the name of the new environment, you need to change the first line of the "myenvironment.yml".
+
+3) Use the ".yml" file to install the new environment: 
+
+conda env create --file myenvironment.yml
