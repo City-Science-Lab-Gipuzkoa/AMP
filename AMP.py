@@ -92,6 +92,7 @@ import json
 import peartree as pt
 import datetime
 import geopy.distance
+import zipfile
 
 import plotly.express as px
 import pandas as pd
@@ -160,12 +161,6 @@ GTFS_path = root_dir + 'data/20240329_130132_Euskadi_Euskotren.zip'
 # https://doi.org/10.1016/j.apgeog.2019.03.008
 
 
-#!pip freeze > Require_file
-#!pip freeze > '{Require_file}' # Colab
-#os.system('pip freeze > ' +Require_file) # server
-os.system('pip list > ' +Require_file) # server
-
-
 # get OpenStreetMap Tags #######################################################
 from bs4 import BeautifulSoup # library to parse HTML documents
 # get the response in the form of html
@@ -179,8 +174,6 @@ table=soup.find('table',{'class':"wikitable"})
 df=pd.read_html(str(table))
 # convert list to dataframe
 df=pd.DataFrame(df[0])
-#print(df.head(20))
-#print(df[['Tags']])
 Tags =[]
 for i in range(len(df)):
     tmp = df.loc[i,'Tags'][0]
@@ -314,6 +307,7 @@ level1_items_DistanceTo = [
             dbc.DropdownMenuItem("marketplace", id = "Mark")
 ]
 
+"""
 level1_items_acc = [
     html.Div(
         id="submenu_acc_var",
@@ -323,7 +317,7 @@ level1_items_acc = [
         ],
     )
 ]
-
+"""
 """
 level1_items_acc_ind = [
     html.Div(
