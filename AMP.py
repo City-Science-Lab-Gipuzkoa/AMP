@@ -92,7 +92,6 @@ import json
 import peartree as pt
 import datetime
 import geopy.distance
-import zipfile
 
 import plotly.express as px
 import pandas as pd
